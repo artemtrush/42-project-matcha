@@ -1,0 +1,64 @@
+General instructions:
+1. no frameworks
+2. any language
+3. website should have a header, a main section, and a footer
+4. website must be usable on mobile
+5. secure passwords, no injections, no unwanted content upload
+6. no errors, no warnings, no notices both from the server and console
+
+Registration
+1. register (email, username, last name, first name, protected password)
+2. login (username, password)
+3. link to reset password
+4. logout from any page with one click
+
+User Profile
+
+Once connected:
+1. user can fill profile (gender, sexual preferences, biography, list of interests (reusable tags),
+pictures (max 5, 1 profile picture))
+2. at any time user can change gender, sexual preferences, biography, list of interests, pictures, last name, first name, email
+3. user can check who viewed the profile and who liked him/her
+4. user has fame rate
+5. user must be located with GPS positioning and must be able to modify his position in the profile (if user does not want to be located with GPS, another location tool must be used)
+
+Browsing
+
+User must receive a list of automatic suggestions that match the profile
+1. ONLY profiles the user can be interested in (if no sexual preferences - user is considered bisexual)
+2. clever match of profiles (same area, maximum of common tags, maximum fame rate), priority for people from the same area
+3. the list must be sortable (age, localization, fame rate, common tags)
+4. the list must be filterable (age, localization, fame rate, common tags)
+
+Search
+
+User must be able to do an advanced search
+1. by age gap
+2. by fame rate gap
+3. by location
+4. one or multiple interest tags (the list must be sortable and filterable)
+
+Profile of other users
+1. user can visit profiles of other users (all information is present but for email and password)
+2. when user visits a profile, it must appear in the visit history
+
+User must be able to do the following:
+1. like another user (if the user has at least one photo)
+2. check the fame rate
+3. see if the person is online (if not, see the date and time of the last connect)
+4. report the account as fake
+5. block the profile (blocked accounts do not appear in search and will not generate notifications)
+6. user can CLEARLY see whether he is connected to the visited profile as well as like/dislike the profile
+
+Chat
+1. when users are connected, they can chat in real time (10 sec delay max).
+2. a user can see from any page that there is a new message
+
+Notifications
+User must be able to see unchecked notifications from any page
+User must be notified in real time (10 sec delay max) about the following:
+1. user received a like
+2. user's profile has been checked
+3. user received a message
+4. a liked profile liked you back
+5. a connected profile disliked you
