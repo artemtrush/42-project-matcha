@@ -5,7 +5,7 @@ class Router
     private $routes;
     private $request_status = false;
 
-    public function __construct()€
+    public function __construct()
     {
         $routPath = ROOT.'/config/routes.php';
         $this->routes = include($routPath);

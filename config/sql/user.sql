@@ -1,6 +1,28 @@
 CREATE TABLE IF NOT EXISTS user (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    login VARCHAR(15) NOT NULL,
-    password VARCHAR(40) NOT NULL,
-    email VARCHAR(50) NOT NULL
+    id 			INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email 		VARCHAR(100) NOT NULL,
+    username 	VARCHAR(10) NOT NULL
+    fname 		VARCHAR(32) NOT NULL,
+    lname		VARCHAR(32) NOT NULL,
+    password	VARCHAR(255) NOT NULL,
+    age			INT(4) NOT NULL,
+    gender		VARCHAR(20) NOT NULL,
+    sex_pref	VARCHAR(20) NOT NULL,
+    biography	VARCHAR(500) NOT NULL,
+    tag1		VARCHAR(20) NOT NULL,
+    tag2		VARCHAR(20) NOT NULL,
+    tag3		VARCHAR(20) NOT NULL,
+    tag4		VARCHAR(20) NOT NULL,
+    tag5		VARCHAR(20) NOT NULL,
+    tag6		VARCHAR(20) NOT NULL,
+    tag7		VARCHAR(20) NOT NULL,
+    tag8		VARCHAR(20) NOT NULL,
+    tag9		VARCHAR(20) NOT NULL,
+    avatar		VARCHAR(50) NOT NULL,
+    image1		VARCHAR(50) NOT NULL,
+    image2		VARCHAR(50) NOT NULL,
+    image3		VARCHAR(50) NOT NULL,
+    image4		VARCHAR(50) NOT NULL,
+    online		TIMESTAMP,
+    location	INT(42) NOT NULL
 )

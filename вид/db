@@ -1,0 +1,49 @@
+[user]
+id 			int 8
+email		var 100
+username 	var 10
+firstname	var 32
+lastname	var 32
+password	var 255	hash
+age 		int 4
+gender		var 20
+sex_pefer	var 20
+biography	var 500
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+tag			var 20
+avatar		var 50
+image1		var 50
+image2		var 50
+image3		var 50
+image4		var 50
+location	int 13
+online		TIMESTAMP
+
+[blacklist]
+id 			int 8
+who 		int 8
+whom 		int 8
+
+
+[vote]
+id 			int 8
+who 		int 8
+whom 		int 8
+
+[notification]
+id 			int 8
+user_id 	int 8
+message 	var 100
+
+[chat]
+id 			int 8
+who 		int 8
+whom 		int 8
+message		var 300

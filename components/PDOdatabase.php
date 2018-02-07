@@ -51,7 +51,9 @@ abstract class DB
             return true;
         }
         catch (PDOException $error)
+        {
             echo 'Deletion failed: ' . $error->getMessage() . PHP_EOL;
+        }
         return false;
     }
 
@@ -66,12 +68,18 @@ abstract class DB
             try
             {
                 self::$db->exec(file_get_contents(ROOT.'/config/sql/create.sql'));
+                self::$db->exec(file_get_contents(ROOT.'/config/sql/blacklist.sql'));
+                self::$db->exec(file_get_contents(ROOT.'/config/sql/chat.sql'));
+                self::$db->exec(file_get_contents(ROOT.'/config/sql/likes.sql'));
+                self::$db->exec(file_get_contents(ROOT.'/config/sql/notification.sql'));
                 self::$db->exec(file_get_contents(ROOT.'/config/sql/user.sql'));
                 echo "Database has been created" . PHP_EOL;
                 return true;
             }
             catch (PDOException $error)
+            {
                 echo 'Creation failed: ' . $error->getMessage() . PHP_EOL;
+            }
         }
         return false;
     }

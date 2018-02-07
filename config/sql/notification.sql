@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS notification (
+    id 			INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id 	INT(8) NOT NULL,
+    message		VARCHAR(100) NOT NULL
+)
