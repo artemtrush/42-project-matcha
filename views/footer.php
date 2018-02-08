@@ -5,7 +5,7 @@
 				Copyright &copy; <?=date ('Y')?> All Rights Reserved
 		</span>
 		<span>
-				Designed by students
+				Designed by atrush and vdoroshy
 		</span>
 	</div>
 </footer>
