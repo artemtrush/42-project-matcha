@@ -16,7 +16,9 @@ if (isset($_POST['function']) && !empty($_POST['function'])
 		include_once($modelFile);
 		try
 		{
-			$function($_POST);
+			$result = $function($_POST);
+			if ($result !== true)
+				header ('Location: /'.strtolower($model)); 
 		}
 		catch (Exception $e)
 		{

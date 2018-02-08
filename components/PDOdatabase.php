@@ -112,6 +112,9 @@ abstract class DB
 
     public static function recreate()
     {
+        global $DB_DSN;
+        global $DB_USER;
+        global $DB_PASSWORD;
         if (self::connect($DB_DSN, $DB_USER, $DB_PASSWORD))
         {
             if (!self::delete())
