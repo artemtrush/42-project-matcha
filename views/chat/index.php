@@ -11,7 +11,17 @@
 
 <?php include_once (ROOT.'/views/header.php');?>
 
-
+<div class="conteiner">
+	<div>
+		<img src="" alt="lhs">
+	</div>
+	<iframe src="https://www.w3schools.com"></iframe>
+	<textarea>Messge area</textarea>
+	<button class="btn btn-primary">Send</button>
+	<div>
+		<img src="" alt="rhs">
+	</div>
+</div>
 
 <?php include_once (ROOT.'/views/footer.php');?>
 

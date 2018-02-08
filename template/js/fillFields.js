@@ -1,4 +1,3 @@
-
 function fillFields (input_class)
 {
 	list = document.querySelectorAll("input." + input_class);
