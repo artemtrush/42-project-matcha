@@ -26,15 +26,13 @@
 	</div>
 
 	<form>
-		<div class="row">
-			<div class="form-group">
-				<div class="col-md-2"></div>
-				<div class="col-md-8">
-					<textarea class="form-control" placeholder="Add Message"></textarea>
-				</div>
+		<div class="form-group row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<textarea class="form-control" placeholder="Add Message"></textarea>
 			</div>
 			<div class="col-md-2">
-				<button class="btn btn-primary btn-lg">Send</button>
+				<button class="btn btn-primary btn-lg">Send Message</button>
 			</div>
 		</div>
 	</form>
