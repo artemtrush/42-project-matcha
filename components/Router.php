@@ -18,11 +18,9 @@ class Router
 	{
 		if (!empty($_SESSION['user_id'])) {
 			header('Location: /profile');
-			die();
 		}
 		else {
 			header('Location: /login');
-			die();
 		}
 		exit;
 	}
