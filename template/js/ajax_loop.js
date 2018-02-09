@@ -1,3 +1,10 @@
+/*
+**model / func - модель/функция что принимают
+**data - ассоц массив с данными которые в POST пойдут
+**handler - функция/обработчик результата запроса
+**delay - частота опроса
+*/
+
 function ajax_loop(model, func, data, handler, delay)
 {
 	var request = new XMLHttpRequest();
