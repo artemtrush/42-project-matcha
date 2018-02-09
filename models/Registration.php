@@ -4,14 +4,16 @@ abstract class Registration
 {
 	static private function checkUsername($username)
 	{
-		
-		return true;
+		if (preg_match("/^[a-zA-Z0-9_-]{3,10}$/", $username))
+			return true;
+		return false;
 	}
 
-	static private function checkPassword($password)
+	static public function checkPassword($password)
 	{
-
-		return true;
+		if (preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,15}$/", $password))
+			return true;
+		return false;
 	}
 
 	static public function register($params)
@@ -33,12 +35,12 @@ abstract class Registration
 			':username' => $params['uname'], 
 			':fname' => $params['fname'], 
 			':lname' => $params['lname'], 
-			':password' => sha1($params['pass'])
+			':password' => encode($params['pass'])
 		);
 		if (DB::query($query, $data) !== false)
 		{
 			header ('Location: /login');
-			exit;
+			return true;
 		}
 		return "An error occurred";
 	}

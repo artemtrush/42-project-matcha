@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="/template/css/style.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="/template/js/fillFields.js"></script>
+	<?php include_once (ROOT.'/template/js/script.php'); ?>
 </head>
 <body>
 <h1 class="headline"> Registration Form </h1>
@@ -19,33 +19,44 @@
 				<div class="row">
 					<div class="col-sm-6 form-group">
 						<label>First Name</label>
-						<input type="text" placeholder="Enter First Name Here.." class="form-control reg-input" name="fname">
+						<input type="text" placeholder="Enter First Name Here.." class="form-control reg-input" name="fname" maxlength="32">
 					</div>
 					<div class="col-sm-6 form-group">
 						<label>Last Name</label>
-						<input type="text" placeholder="Enter Last Name Here.." class="form-control reg-input" name="lname">
+						<input type="text" placeholder="Enter Last Name Here.." class="form-control reg-input" name="lname" maxlength="32">
 					</div>
 				</div>									
 				<div class="form-group">
 					<label>Username</label>
-					<input type="text" placeholder="Enter Username Here.." class="form-control reg-input" name="uname">
+					<input type="text" placeholder="Enter Username Here.." class="form-control reg-input" name="uname" maxlength="10">
 				</div>		
 				<div class="form-group">
 					<label>Email Address</label>
-					<input type="email" placeholder="Enter Email Address Here.." class="form-control reg-input" name="email">
+					<input type="email" placeholder="Enter Email Address Here.." class="form-control reg-input" name="email" maxlength="100">
 				</div>	
 				<div class="row">
 					<div class="col-sm-6 form-group">
 						<label>Password</label>
-						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="pass">
+						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="pass" maxlength="15">
 					</div>
 					<div class="col-sm-6 form-group">
 						<label>Confirm Password</label>
-						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="confirm">
+						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="confirm" maxlength="15">
 					</div>
 				</div>
-				<br>		
-				<button type="submit" class="btn btn-lg btn-success submit-btn" onclick="return fillFields('reg-input');">Submit</button>			
+				<br>
+				<div class="row">
+					<div class="col-sm-6">
+						<button type="button" class="btn btn-lg btn-danger submit-btn" onclick="redirect('login');">
+							Login
+						</button>	
+					</div>
+					<div class="col-sm-6">
+						<button type="submit" class="btn btn-lg btn-success submit-btn" onclick="return fillFields('reg-input');">
+							Submit
+						</button>	
+					</div>
+				</div>			
 			</div>
 		</form>
 	</div>
