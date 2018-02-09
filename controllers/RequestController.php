@@ -25,7 +25,7 @@ if (!empty($_POST['function']) && !empty($_POST['model']))
 			{
 				if ($result !== false)
 					$_SESSION['error_message'] = $result;
-				header ('Location: /'.strtolower($model)); 
+				header ('Location: '.$_SERVER['HTTP_REFERER']); 
 			}
 		}
 		catch (Exception $e)

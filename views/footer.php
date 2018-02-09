@@ -1,7 +1,11 @@
 <footer class="footer">
-	<hr>
-	<div class="container">
-		<span class="text-muted">Copyright &copy; <?=date ('Y')?> All Rights Reserved</span>
-		<span class="text-muted">Designed by atrush and vdoroshy</span>
-	</div>
+    <hr>
+    <div class="row">
+    	<div class="col-sm-6 col-md-6 text-left">
+        	<span>Copyright &copy; <?=date ('Y')?> All Rights Reserved</span>
+        </div>
+        <div class="col-sm-6 col-md-6 text-right">
+        	<span>Designed by atrush and vdoroshy</span>
+        </div>
+    </div>
 </footer>
