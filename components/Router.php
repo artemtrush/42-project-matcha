@@ -16,10 +16,14 @@ class Router
 
 	public function  page_not_found()
 	{
-		if (!empty($_SESSION['user_id']))
-			header('Location: /profile'); 
-		else
-			header('Location: /login'); 
+		if (!empty($_SESSION['user_id'])) {
+			header('Location: /profile');
+			die();
+		}
+		else {
+			header('Location: /login');
+			die();
+		}
 		exit;
 	}
 
