@@ -12,16 +12,33 @@
 
 <?php include_once (ROOT.'/views/header.php');?>
 
-<div class="conteiner">
-	<div>
-		<img src="" alt="lhs">
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<img src="http://mynameismatthieu.com/WOW/img/wow-12.gif" alt="lhs">
+		</div>
+		<div class="col-md-8">
+			<div style="height: 800px; border:2px solid black">Some chat text</div>
+		</div>
+		<div class="col-md-2">
+			<img src="http://mynameismatthieu.com/WOW/img/wow-12.gif" alt="rhs">
+		</div>
 	</div>
-	<iframe src="https://www.w3schools.com"></iframe>
-	<textarea>Messge area</textarea>
-	<button class="btn btn-primary">Send</button>
-	<div>
-		<img src="" alt="rhs">
-	</div>
+
+	<form>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<textarea class="form-control" placeholder="Add Message"></textarea>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-primary btn-lg">Send</button>
+			</div>
+		</div>
+	</form>
+
 </div>
 
 <?php include_once (ROOT.'/views/footer.php');?>
