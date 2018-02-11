@@ -1,13 +1,13 @@
 <nav class="navbar navbar-inverse">
 	<div class="container">
 		<ul class="nav navbar-nav">
-			<li <?php if ($active === "profile") echo "class=\"active\"";?> >
+			<li <?php if (!empty($active) && $active === "profile") echo "class=\"active\"";?> >
 				<a href="profile"><span class="glyphicon glyphicon-home"></span> Profile</a>
 			</li>
-			<li <?php if ($active === "settings") echo "class=\"active\"";?> >
+			<li <?php if (!empty($active) && $active === "settings") echo "class=\"active\"";?> >
 				<a href="settings "><span class="glyphicon glyphicon-user"></span> Account Settings</a>
 			</li>
-			<li <?php if ($active === "search") echo "class=\"active\"";?> >
+			<li <?php if (!empty($active) && $active === "search") echo "class=\"active\"";?> >
 				<a href="search "><span class="glyphicon glyphicon-search"></span> Search</a>
 			</li>
 		</ul>

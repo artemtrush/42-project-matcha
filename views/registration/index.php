@@ -4,7 +4,7 @@
 	<meta http-equiv="content-type" content="text/html" charset="utf-8">
 	<title>Registration</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://ubistatic19-a.akamaihd.net/resource/ru-ru/game/southpark/thefracturedbutwhole/spfbw-cartman.png">
 	<link href="/template/css/style.css" rel="stylesheet" type="text/css">
 	<?php include_once (ROOT.'/template/js/script.php'); ?>
 </head>
@@ -26,9 +26,10 @@
 						<input type="text" placeholder="Enter Last Name Here.." class="form-control reg-input" name="lname" maxlength="32">
 					</div>
 				</div>									
-				<div class="form-group">
+				<div class="form-group" >
 					<label>Username</label>
-					<input type="text" placeholder="Enter Username Here.." class="form-control reg-input" name="uname" maxlength="10">
+					<input type="text" placeholder="Enter Username Here.." class="form-control reg-input" name="uname" maxlength="10" 
+						title="The username must be 3 to 15 characters long and consist only of English letters, numbers, underscores, and dashes.">
 				</div>		
 				<div class="form-group">
 					<label>Email Address</label>
@@ -37,7 +38,8 @@
 				<div class="row">
 					<div class="col-sm-6 form-group">
 						<label>Password</label>
-						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="pass" maxlength="15">
+						<input type="password" placeholder="Enter Password Here.." class="form-control reg-input" name="pass" maxlength="15"
+							title="At least eight characters, one uppercase and one lowercase letter, and one number.">
 					</div>
 					<div class="col-sm-6 form-group">
 						<label>Confirm Password</label>

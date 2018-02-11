@@ -4,6 +4,7 @@ body {
 	-moz-user-select: none;
 	user-select: none;
 	min-width: 500px;
+	margin-bottom: 71px;
 }
 
 nav {
@@ -11,7 +12,12 @@ nav {
 }
 
 footer {
-	padding: 100px 5% 2% 5%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #e9e9e9;
+	padding: 1% 5% 2% 5%;
 }
 
 footer hr {
@@ -42,4 +48,66 @@ div.error_message {
     transition: all 3s ease-out;
     -webkit-transition: all 3s ease-out;
     -moz-transition: all 3s ease-out;
+}
+
+img.user-avatar {
+	width: 100%;
+	max-height: 360px;
+}
+
+div.user-info {
+	height: 225px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#map-container {
+	padding: 0;
+	border-radius: 10px;
+	border: 3px solid #222;
+	height: 200px;
+}
+#map {
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+}
+
+button.profile-button {
+	background: #222;
+	border-color: #222;
+	padding: 0;
+	width: 28.33%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+hr.profile-hr {
+	border-color: #222;
+	border-style: solid none;
+	border-width: 1px 0;
+	margin-top: 3px;
+}
+
+.headline {
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
+img.user-photo {
+	padding-bottom: 15px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+div.user-tag {
+	display: inline-block;
+	text-align: center;
+	width: 150px;
+	padding: 2px;
+	margin-top: 0;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	margin-left: 10px;
 }
