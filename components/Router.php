@@ -16,12 +16,7 @@ class Router
 
 	public function  page_not_found()
 	{
-		if (!empty($_SESSION['user_id'])) {
-			header('Location: /profile');
-		}
-		else {
-			header('Location: /login');
-		}
+		//header("HTTP/1.0 404 Not Found");
 		exit;
 	}
 

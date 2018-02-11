@@ -4,7 +4,7 @@ body {
 	-moz-user-select: none;
 	user-select: none;
 	min-width: 500px;
-	margin-bottom: 71px;
+	margin-bottom: 171px;
 }
 
 nav {
@@ -101,6 +101,10 @@ img.user-photo {
 	border-radius: 5px;
 }
 
+img.upload-photo {
+	cursor: pointer;
+}
+
 div.user-tag {
 	display: inline-block;
 	text-align: center;
@@ -110,4 +114,10 @@ div.user-tag {
 	margin-right: 10px;
 	margin-bottom: 20px;
 	margin-left: 10px;
+}
+
+form.upload-form {
+	display: none;
+	max-height: 0;
+	max-width: 0;
 }

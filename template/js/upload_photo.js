@@ -1,4 +1,0 @@
-function upload_photo()
-{
-
-}

@@ -1,16 +1,15 @@
 function initialize() {
 	if (!document.getElementById('map'))
 		return;
-
-	var myLatlng = new google.maps.LatLng(53.3333,-3.08333),
+	var myLatlng = new google.maps.LatLng(x_pos, y_pos),
 	mapOptions = {
 		zoom: 11,
 		center: myLatlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	}
 
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions),
-	contentString = 'Some address here..',
+	contentString = uname,
 	infowindow = new google.maps.InfoWindow({
 		content: contentString,
 		maxWidth: 300

@@ -46,8 +46,7 @@ abstract class DB
         {
             self::$db->exec("DROP DATABASE IF EXISTS ".DB_NAME);
             echo "Database has been deleted" . PHP_EOL;
-            //self::delFolder(ROOT.'/database');
-            //!!!!!!!!!!!!!
+            self::delFolder(ROOT.'/database');
             return true;
         }
         catch (PDOException $error)
