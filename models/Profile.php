@@ -5,13 +5,12 @@ abstract class Profile
 	static public function getOnlineDate($params)
 	{
 		foreach ($params as $value)
-		{
 			if (empty($value))
 			{
 				echo "false";
 				exit;
 			}
-		}
+
 		$query = "SELECT user.online FROM user WHERE user.id = :id";
 		$data = array(
 			':id' => $params['id']
@@ -21,6 +20,7 @@ abstract class Profile
 			$result_array = $result->fetch(PDO::FETCH_ASSOC);
 			if (!empty($result_array['online']))
 			{
+				date_default_timezone_set("Europe/Kiev");
 				if ((time() - strtotime($result_array['online'])) <= 30)
 					echo "online";
 				else
@@ -30,6 +30,15 @@ abstract class Profile
 		}
 		echo "false";
 		exit;
+	}
+
+	static public function updateOnlineDate()
+	{
+		$query = "UPDATE user SET user.online = CURRENT_TIMESTAMP WHERE user.id = :id";
+		$data = array(
+			':id' => $_SESSION['user_id']
+		);
+		DB::query($query, $data);
 	}
 
 	static public function getUserInfo($id)
@@ -117,4 +126,135 @@ abstract class Profile
 		}
 		return $errorMessage;
 	}
+
+	static public function isLiked($who, $whom)
+	{
+		if ($who === $whom)
+			return false;
+		$query = "SELECT id FROM likes WHERE who = :who AND whom = :whom";
+		$data = array(
+			':who' => $who,
+			':whom' => $whom
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetch(PDO::FETCH_ASSOC);
+			if (!empty($result_array['id']))
+				return true;
+		}
+		return false;
+	}
+
+	static public function isBlocked($who, $whom)
+	{
+		if ($who === $whom)
+			return false;
+		$query = "SELECT id FROM blacklist WHERE who = :who AND whom = :whom";
+		$data = array(
+			':who' => $who,
+			':whom' => $whom
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetch(PDO::FETCH_ASSOC);
+			if (!empty($result_array['id']))
+				return true;
+		}
+		return false;
+	}
+
+	static public function likeOnClick($params)
+	{
+		foreach ($params as $value)
+			if (empty($value))
+				return "An error occurred";	
+		$who_id = $_SESSION['user_id'];
+		if ($who_id === $params['whom_id'])
+			return "An error occurred";
+
+		$query = "INSERT INTO likes (who, whom) VALUES (:who, :whom)";
+		$data = array(
+			':who' => $who_id, 
+			':whom' => $params['whom_id']
+		);
+		if (DB::query($query, $data) !== false)
+		{
+			//just page reload
+			return false;
+		}
+		return "An error occurred";
+	}
+
+	static public function blockOnClick($params)
+	{
+		foreach ($params as $value)
+			if (empty($value))
+				return "An error occurred";	
+		$who_id = $_SESSION['user_id'];
+		if ($who_id === $params['whom_id'])
+			return "An error occurred";
+
+		$query = "INSERT INTO blacklist (who, whom) VALUES (:who, :whom)";
+		$data = array(
+			':who' => $who_id, 
+			':whom' => $params['whom_id']
+		);
+		if (DB::query($query, $data) !== false)
+		{
+			//just page reload
+			return false;
+		}
+		return "An error occurred";
+	}
+
+	static public function unlikeOnClick($params)
+	{
+		foreach ($params as $value)
+			if (empty($value))
+				return "An error occurred";
+		$who = $_SESSION['user_id'];
+		$whom = $params['whom_id'];
+		if ($who === $whom)
+			return "An error occurred";
+
+		$query = "DELETE FROM likes WHERE who = :who AND whom = :whom";
+        $data = array(
+			':who' => $who, 
+			':whom' => $whom
+		);
+		if (DB::query($query, $data) !== false)
+		{
+			//just page reload
+			return false;
+		}
+		return "An error occurred";
+	}
+
+	static public function unblockOnClick($params)
+	{
+		foreach ($params as $value)
+			if (empty($value))
+				return "An error occurred";
+		$who = $_SESSION['user_id'];
+		$whom = $params['whom_id'];
+		if ($who === $whom)
+			return "An error occurred";
+
+		$query = "DELETE FROM blacklist WHERE who = :who AND whom = :whom";
+        $data = array(
+			':who' => $who, 
+			':whom' => $whom
+		);
+		if (DB::query($query, $data) !== false)
+		{
+			//just page reload
+			return false;
+		}
+		return "An error occurred";
+	}
+
+	static public function fakeOnClick()
+	{
+		return "Thank you for helping to improve the community of Matcha.";
+	}	
 }

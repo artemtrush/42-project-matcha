@@ -21,7 +21,8 @@ function ajax_loop(model, func, data, handler, delay)
 	{
 		if (request.responseText !== 'false')
 		{
-			data = handler(request.responseText, data);
+			if (handler)
+				data = handler(request.responseText, data);
 		}
 		setTimeout(function() {    
 			ajax_loop(model, func, data, handler, delay);

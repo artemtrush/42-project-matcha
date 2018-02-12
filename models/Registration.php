@@ -4,8 +4,18 @@ abstract class Registration
 {
 	static private function checkUsername($username)
 	{
-		if (preg_match("/^[a-zA-Z0-9_-]{3,10}$/", $username))
-			return true;
+		if (!preg_match("/^[a-zA-Z0-9_-]{3,10}$/", $username))
+			return false;
+		$query = "SELECT user.id FROM user WHERE user.username = :uname";
+		$data = array(
+			':uname' => $username
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetch(PDO::FETCH_ASSOC);
+			if (empty($result_array['id']))
+				return true;
+		}
 		return false;
 	}
 
@@ -20,7 +30,7 @@ abstract class Registration
 	{
 		foreach ($params as $value)
 		{
-			if (empty($value))
+			if (empty($value) || trim($value) === "")
 				return "Invalid data";
 		}
 		if (!self::checkUsername($params['uname']))

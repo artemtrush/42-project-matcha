@@ -19,11 +19,11 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="form-group">
 					<label>New Password</label>
-					<input type="password" placeholder="Enter Password Here.." class="form-control reset-input" maxlength="15" name="pass">
+					<input type="password" placeholder="Enter Password Here.." class="form-control" maxlength="15" name="pass" required>
 				</div>
 				<div class="form-group">
 					<label>Confirm Password</label>
-					<input type="password" placeholder="Enter Password Here.." class="form-control reset-input" maxlength="15" name="confirm">
+					<input type="password" placeholder="Enter Password Here.." class="form-control" maxlength="15" name="confirm" required>
 				</div>
 				<br>
 				<div class="row">
@@ -33,7 +33,7 @@
 						</button>	
 					</div>
 					<div class="col-sm-6">
-						<button type="submit" class="btn btn-lg btn-success submit-btn" onclick="return fillFields('reset-input');">
+						<button type="submit" class="btn btn-lg btn-success submit-btn">
 							Submit
 						</button>	
 					</div>

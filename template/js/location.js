@@ -19,6 +19,11 @@ function initialize() {
 		position: myLatlng,
  		map: map
 	});
+	if (markable)
+	{
+		document.getElementById('lat').value = marker.getPosition().lat();
+		document.getElementById('lng').value = marker.getPosition().lng();
+	}
 
 	google.maps.event.addListener(marker, 'click', function() {
  		infowindow.open(map,marker);
@@ -29,6 +34,20 @@ function initialize() {
  		google.maps.event.trigger(map, "resize");
  		map.setCenter(center);
  	});
+
+	if (markable)
+	{
+		map.addListener('click', function(event) {
+			if (marker && marker.setMap)
+				marker.setMap(null);
+			marker = new google.maps.Marker({
+				position: event.latLng,
+				map: map
+			});
+			document.getElementById('lat').value = marker.getPosition().lat();
+			document.getElementById('lng').value = marker.getPosition().lng();
+	    });
+	}
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

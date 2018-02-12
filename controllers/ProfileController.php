@@ -28,14 +28,12 @@ class ProfileController
 		$rate = $info['rate'];
 		$x_pos = $info['location_x'];
 		$y_pos = $info['location_y'];
-
 		$tag = array();
 		for ($i = 1; $i <= 9; $i++)
 		{ 
 			if ($info['tag'.$i])
 				$tag[] = $_TAG_[$i - 1];
 		}
-
 		$active = 'profile';
 		require_once(ROOT.'/views/profile/index.php');
 		return true;
@@ -52,6 +50,8 @@ class ProfileController
     	if ($id == $_SESSION['user_id'])
     		return $this->actionIndex();
     	$info = Profile::getUserInfo($id);
+    	$info['liked'] = Profile::isLiked($_SESSION['user_id'], $id);
+    	$info['blocked'] = Profile::isBlocked($_SESSION['user_id'], $id);
     	return $this->parseInfo($info, false);
     }
 }

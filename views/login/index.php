@@ -18,11 +18,11 @@
 			<div class="col-md-10 col-md-offset-1">								
 				<div class="form-group">
 					<label>Username</label>
-					<input type="text" placeholder="Enter Username Here.." class="form-control login-input" maxlength="10" name="username">
+					<input type="text" placeholder="Enter Username Here.." class="form-control" maxlength="10" name="username" required>
 				</div>
 				<div class="form-group">
 					<label>Password</label>
-					<input type="password" placeholder="Enter Password Here.." class="form-control login-input" maxlength="15" name="pass">
+					<input type="password" placeholder="Enter Password Here.." class="form-control" maxlength="15" name="pass" required>
 				</div>
 				<br>
 				<div class="row">
@@ -32,7 +32,7 @@
 						</button>	
 					</div>
 					<div class="col-sm-6">
-						<button type="submit" class="btn btn-lg btn-success submit-btn" onclick="return fillFields('login-input');">
+						<button type="submit" class="btn btn-lg btn-success submit-btn">
 							Submit
 						</button>	
 					</div>
@@ -49,10 +49,10 @@
 				<div class="row">
 					<div class="col-md-8 form-group">
 						<label>Email Address</label>
-						<input type="email" placeholder="Enter Email Address Here.." class="form-control forgot-input" maxlength="100" name="email">
+						<input type="email" placeholder="Enter Email Address Here.." class="form-control" maxlength="100" name="email" required>
 					</div>	
 					<div class="col-md-4" style="padding-top: 25px;">
-						<button type="submit" class="btn btn-primary submit-btn" onclick="return fillFields('forgot-input');">Forgot Password</button>
+						<button type="submit" class="btn btn-primary submit-btn">Forgot Password</button>
 					</div>
 				</div>
 			</div>

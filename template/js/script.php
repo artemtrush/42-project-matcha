@@ -2,9 +2,7 @@
 $str = <<<EOD
 	<script type="text/javascript" src="/template/js/ajax_loop.js"></script>
 	<script type="text/javascript" src="/template/js/error_message.js"></script>
-	<script type="text/javascript" src="/template/js/fillFields.js"></script>
 	<script type="text/javascript" src="/template/js/redirect.js"></script>
-	<script type="text/javascript" src="/template/js/fake_report.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&;;sensor=false"></script>
 	<script type="text/javascript" src="/template/js/location.js"></script>
 	<script type="text/javascript" src="/template/js/online_status.js"></script>

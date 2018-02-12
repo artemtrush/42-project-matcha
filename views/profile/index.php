@@ -51,12 +51,13 @@
 					<label>Location</label>
 					<div id="map-container">
 						<div id="map"></div>
-						<?php 
+						<?php
 							echo ("
 							<script>
 								var x_pos = {$x_pos};
 								var y_pos = {$y_pos};
 								var uname = \"{$username}\";
+								var markable = false;
 							</script>
 							");
 						?>
@@ -71,9 +72,58 @@
 			</div>
 			<?php if (!$access): ?>
 				<div>
-					<button type="button" class="btn btn-primary profile-button">Like</button>
-					<button type="button" class="btn btn-primary profile-button" onclick="fake_report();">Report as fake</button>
-					<button type="button" class="btn btn-primary profile-button">Block the user</button>
+					<?php if ($info['blocked'] === false): ?>
+						<?php if ($info['liked'] === false): ?>
+							<form method="post" action="/controllers/RequestController.php"
+								class="profile-button-form">
+								<input type="hidden" name="model" value="Profile">
+								<input type="hidden" name="function" value="likeOnClick">
+								<input type="hidden" name="whom_id" value="<?php echo($id);?>">
+								<button type="submit" class="btn btn-primary profile-button">
+									Like
+								</button>
+							</form>
+						<?php else: ?>
+							<form method="post" action="/controllers/RequestController.php"
+								class="profile-button-form">
+								<input type="hidden" name="model" value="Profile">
+								<input type="hidden" name="function" value="unlikeOnClick">
+								<input type="hidden" name="whom_id" value="<?php echo($id);?>">
+								<button type="submit" class="btn btn-primary profile-button">
+									Unlike
+								</button>
+							</form>
+						<?php endif; ?>
+
+						<form method="post" action="/controllers/RequestController.php"
+							class="profile-button-form">
+							<input type="hidden" name="model" value="Profile">
+							<input type="hidden" name="function" value="fakeOnClick">
+							<button type="submit" class="btn btn-primary profile-button">
+								Report as fake
+							</button>
+						</form>
+
+						<form method="post" action="/controllers/RequestController.php"
+							class="profile-button-form">
+							<input type="hidden" name="model" value="Profile">
+							<input type="hidden" name="function" value="blockOnClick">
+							<input type="hidden" name="whom_id" value="<?php echo($id);?>">
+							<button type="submit" class="btn btn-primary profile-button">
+								Block the user
+							</button>
+						</form>
+					<?php else: ?>
+						<form method="post" action="/controllers/RequestController.php"
+							class="profile-button-form" style="margin-left: 35%; width: 30%;">
+							<input type="hidden" name="model" value="Profile">
+							<input type="hidden" name="function" value="unblockOnClick">
+							<input type="hidden" name="whom_id" value="<?php echo($id);?>">
+							<button type="submit" class="btn btn-primary profile-button">
+								Unblock the user
+							</button>
+						</form>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 		</div>

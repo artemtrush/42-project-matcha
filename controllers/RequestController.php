@@ -5,8 +5,6 @@ include_once(ROOT.'/components/PDOdatabase.php');
 include_once(ROOT.'/components/Sendmail.php');
 if (!isset($_SESSION))
 	session_start();
-foreach ($_POST as $value)
-	$value = trim($value);
 
 if (!empty($_POST['function']) && !empty($_POST['model']))
 {
