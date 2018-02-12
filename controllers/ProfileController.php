@@ -34,7 +34,8 @@ class ProfileController
 			if ($info['tag'.$i])
 				$tag[] = $_TAG_[$i - 1];
 		}
-		$active = 'profile';
+		if (!empty($info['active']))
+			$active = 'profile';
 		require_once(ROOT.'/views/profile/index.php');
 		return true;
 	}
@@ -42,6 +43,9 @@ class ProfileController
     public function actionIndex()
     {
     	$info = Profile::getUserInfo($_SESSION['user_id']);
+    	if (!$info)
+			return false;
+		$info['active'] = 'profile';
     	return $this->parseInfo($info, true);
     }
 
@@ -50,6 +54,8 @@ class ProfileController
     	if ($id == $_SESSION['user_id'])
     		return $this->actionIndex();
     	$info = Profile::getUserInfo($id);
+    	if (!$info)
+			return false;
     	$info['liked'] = Profile::isLiked($_SESSION['user_id'], $id);
     	$info['blocked'] = Profile::isBlocked($_SESSION['user_id'], $id);
     	return $this->parseInfo($info, false);

@@ -5,10 +5,16 @@
 				<a href="/profile"><span class="glyphicon glyphicon-home"></span> Profile</a>
 			</li>
 			<li <?php if (!empty($active) && $active === "settings") echo "class=\"active\"";?> >
-				<a href="/settings "><span class="glyphicon glyphicon-user"></span> Account Settings</a>
+				<a href="/settings"><span class="glyphicon glyphicon-user"></span> Account Settings</a>
+			</li>
+			<li <?php if (!empty($active) && $active === "connections") echo "class=\"active\"";?> >
+				<a href="/connections"><span class="glyphicon glyphicon-comment"></span> Connections</a>
+			</li>
+			<li <?php if (!empty($active) && $active === "history") echo "class=\"active\"";?> >
+				<a href="/history"><span class="glyphicon glyphicon-bell"></span> History</a>
 			</li>
 			<li <?php if (!empty($active) && $active === "search") echo "class=\"active\"";?> >
-				<a href="/search "><span class="glyphicon glyphicon-search"></span> Search</a>
+				<a href="/search"><span class="glyphicon glyphicon-search"></span> Search</a>
 			</li>
 		</ul>
 		<form id="logout-form" method="post" action="/controllers/RequestController.php">

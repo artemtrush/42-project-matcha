@@ -4,7 +4,7 @@ define('DOMAIN', "http://localhost");
 
 $_GENDER_ = array("male", "female");
 $_SEX_ = array("bisexual", "heterosexual", "homosexual");
-$_TAG_ = array(	"vagan",
+$_TAG_ = array(	"vegan",
 				"geek",
 				"UNIT student",
 				"wow player",
