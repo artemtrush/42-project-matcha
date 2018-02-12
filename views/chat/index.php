@@ -48,21 +48,23 @@ Praesent luctus dui commodo porttitor bibendum. Sed pretium ante quis condimentu
 			<div class="alert alert-info">username</div>
 		</div>
 	</div>
-
+	<?php
+	echo "<script type=\"text/javascript\">var whom = {$id};</script>";
+?>
 	<br><br>
-	<form>
-		<div class="form-group row">
-			<div class="col-md-2"></div>
-			<div class="col-md-6">
-				<textarea class="form-control chat-new-msg" placeholder="Add Message"></textarea>
-			</div>
-			<div class="col-md-2">
-				<button class="btn btn-primary btn-lg">Send Message</button>
-			</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-6">
+			<textarea class="form-control chat-new-msg" maxlength="300" placeholder="Add Message"></textarea>
 		</div>
-	</form>
+		<div class="col-md-2">
+			<button onclick="sendMessage()" style="height: 58px; width: 100%;" class="btn btn-primary btn-lg">Send</button>
+		</div>
+	</div>
 
 </div>
+
+<!-- element.scrollTop = element.scrollHeight -->
 
 <?php include_once (ROOT.'/views/footer.php');?>
 
