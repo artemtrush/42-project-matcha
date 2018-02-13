@@ -9,11 +9,11 @@ class ChatController
     	$user1 = Profile::getUserInfo($_SESSION['user_id']);
 		$user2 = Profile::getUserInfo($id);
     	/*
-		**if the user tries to open his own chat or the one with non existant user - exit
+		**if the user tries to open his own chat or the one with non existant user - error 404
     	*/
     	if ($id == $_SESSION['user_id'] || $user2 === false) {
     		//TODO make a proper error message
-    		exit;
+    		return false;
     	}
 		//getting variables needed for the page
 		$user1Avatar = $user1['avatar'];

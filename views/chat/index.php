@@ -68,5 +68,12 @@ Praesent luctus dui commodo porttitor bibendum. Sed pretium ante quis condimentu
 
 <?php include_once (ROOT.'/views/footer.php');?>
 
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function () {
+		var data = { id: <?php echo($id);?> };
+		// ajax_loop('Profile', 'getOnlineDate', data, online_status, 5);
+	});
+</script>
+
 </body>
 </html>

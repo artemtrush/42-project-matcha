@@ -37,4 +37,8 @@ abstract class Chat {
 		}
 		return "An error has occurred";
    }
+
+	static public function loadMessagesFromBd() {
+		
+	}
 }
