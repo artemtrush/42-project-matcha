@@ -2,11 +2,12 @@
 
 define('DOMAIN', "http://localhost");
 
-define('LIKED', '_USER liked you');
-define('VIEW_PROFILE', '_USER came to your profile');
-define('NEW_MESSAGE', '_USER send you message');
-define('LIKED_BACK', '_USER liked back');
-define('UNLIKED', '_USER unliked you');
+define('LIKED', '_USER liked you.');
+define('VIEW_PROFILE', '_USER visited your profile.');
+define('NEW_MESSAGE', '_USER sent you a message.');
+define('LIKED_BACK', '_USER liked you back.');
+define('UNLIKED', '_USER unliked you.');
+
 
 /*
 ** The user received a “like”.
