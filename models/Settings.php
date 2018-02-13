@@ -42,8 +42,7 @@ abstract class Settings
 
 		if (DB::query($query, $data) !== false)
 		{
-			header('Location: /settings');
-			return true;
+			return "Settings have been saved";
 		}
 		return "An error occurred";
 	}

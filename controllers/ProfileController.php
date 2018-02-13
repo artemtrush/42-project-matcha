@@ -1,5 +1,6 @@
 <?php
 
+include_once (ROOT.'/models/History.php');
 include_once (ROOT.'/models/Profile.php');
 
 class ProfileController
@@ -58,6 +59,7 @@ class ProfileController
 			return false;
     	$info['liked'] = Profile::isLiked($_SESSION['user_id'], $id);
     	$info['blocked'] = Profile::isBlocked($_SESSION['user_id'], $id);
+    	History::createNotification($id, VIEW_PROFILE);
     	return $this->parseInfo($info, false);
     }
 }

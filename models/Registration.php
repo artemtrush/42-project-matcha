@@ -49,8 +49,7 @@ abstract class Registration
 		);
 		if (DB::query($query, $data) !== false)
 		{
-			header ('Location: /login');
-			return true;
+			return "Registration completed successfully";
 		}
 		return "An error occurred";
 	}
