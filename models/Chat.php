@@ -1,12 +1,17 @@
 <?php
 
+include_once (ROOT.'/models/Profile.php');
+
 abstract class Chat {
 	static public function saveMessageToBd($params) {
-		//foreach ($params as $value)
-		// {
-		// 	if (empty($value) || trim($value) === "")
-		// 		return "Invalid data";
-		// }
+		foreach ($params as $value) {
+			if (empty($value) || trim($value) === ""){
+				exit;
+			}
+		}
+		//getUserInfo
+		//isBlocked
+		//isLiked
 		// if (!self::checkUsername($params['uname']))
 		// 	return "Invalid username";
 		// if (!self::checkPassword($params['pass']))
