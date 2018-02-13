@@ -13,7 +13,7 @@ include_once(ROOT.'/components/Sendmail.php');
 
 if (!isset($_SESSION))
 	session_start();
-//logout
+//logout !!!!!!
 //unset($_SESSION['user_id']);
 //Call Router
 $router = new Router();

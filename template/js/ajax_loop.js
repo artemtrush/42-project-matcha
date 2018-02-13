@@ -23,9 +23,9 @@ function ajax_loop(model, func, data, handler, delay)
 		{
 			if (handler)
 				data = handler(request.responseText, data);
+			setTimeout(function() {    
+				ajax_loop(model, func, data, handler, delay);
+			}, delay * 1000);
 		}
-		setTimeout(function() {    
-			ajax_loop(model, func, data, handler, delay);
-		}, delay * 1000);
 	};
 }

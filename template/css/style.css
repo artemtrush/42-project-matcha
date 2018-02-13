@@ -127,6 +127,31 @@ form.upload-form {
 	max-width: 0;
 }
 
+li.li-ntf {
+	padding-left: 4%;
+	padding-right: 4%;
+	font-size: 130%;
+	color: black;
+}
+
+span.li-ntf-time {
+	float: right;
+	opacity: 0.7;
+}
+
+div.notification {
+    position: fixed;
+    right: 20px;
+    font-size: 130%;
+    padding: 0;
+    text-align: center;
+    color: black;
+
+    transition: all 0.6s ease-out;
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+}
+
 /*chat*/
 
 .chat-img {

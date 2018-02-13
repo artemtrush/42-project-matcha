@@ -5,7 +5,7 @@
 				<a href="/profile"><span class="glyphicon glyphicon-home"></span> Profile</a>
 			</li>
 			<li <?php if (!empty($active) && $active === "settings") echo "class=\"active\"";?> >
-				<a href="/settings"><span class="glyphicon glyphicon-user"></span> Account Settings</a>
+				<a href="/settings"><span class="glyphicon glyphicon-user"></span> Settings</a>
 			</li>
 			<li <?php if (!empty($active) && $active === "connections") echo "class=\"active\"";?> >
 				<a href="/connections"><span class="glyphicon glyphicon-comment"></span> Connections</a>

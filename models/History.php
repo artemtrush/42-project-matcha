@@ -1,26 +1,55 @@
 <?php
 
+include_once (ROOT.'/models/Profile.php');
+
 abstract class History
 {
 
-	static private function alreadyCreated($msg)
+	static public function  getNotifications($params)
 	{
-		$query = "SELECT id FROM notification WHERE message = :msg";
+		$query = "SELECT id, message FROM notification WHERE user_id = :user_id AND viewed = 0 AND id > :id";
 		$data = array(
-			':msg' => $msg
+			':user_id' => $_SESSION['user_id'],
+			':id' => $params['id']
 		);
 		if (($result = DB::query($query, $data)) !== false)
 		{
-			$result_array = $result->fetch(PDO::FETCH_ASSOC);
-			if (!empty($result_array['id']))
-				return true;
+			$result_array = $result->fetchAll(PDO::FETCH_ASSOC);
+			echo json_encode($result_array);
+			return true;
 		}
-		return false;
+		echo 'false';
+		exit;
 	}
+
+	static public function  getHistory($id)
+	{
+		$query = "SELECT message, viewed FROM notification WHERE user_id = :id ORDER BY id DESC";
+		$data = array(
+			':id' => $id
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetchAll(PDO::FETCH_ASSOC);
+			return $result_array;
+		}
+		return null;
+	}
+
+    static public function  setAsViewed($id)
+    {
+    	$query = "UPDATE notification SET viewed = 1 WHERE user_id = :id AND viewed = 0";
+		$data = array(
+			':id' => $id
+		);
+		DB::query($query, $data);
+    }
 
 	static public function createNotification($id, $msg)
 	{
 		if ($_SESSION['user_id'] == $id)
+			return;
+		if (Profile::isBlocked($id, $_SESSION['user_id']))
 			return;
 		$info = Profile::getUserInfo($_SESSION['user_id']);
 		if (!$info)
@@ -29,10 +58,7 @@ abstract class History
 		$user = $info['username'];
 		date_default_timezone_set("Europe/Kiev");
 		$time = date("H:i (d.m.y)", time());
-		$msg = str_replace('_USER', $user, $msg);
-		$msg = str_replace('_TIME', $time, $msg);
-		// if (self::alreadyCreated($msg))
-		// 	return;
+		$msg = str_replace('_USER', $user, $msg).$time;
 		$query = "INSERT INTO notification (user_id, message) VALUES (:id, :msg)";
 		$data = array(
 			':id' => $id,

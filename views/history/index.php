@@ -11,9 +11,29 @@
 <body>
 
 <?php include_once (ROOT.'/views/header.php');?>
-
-
-
+<br><br>
+<div class="container">
+	<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+	<ul class="list-group">
+		<?php
+			if (!count($notifs))
+			{
+				echo("<h1 class=\"headline\">There Is Nothing, Yet...</h1>");
+			}
+			foreach ($notifs as $value)
+			{
+				$msg = "<span>".substr($value['message'], 0, -16)."</span>".
+					"<span class=\"li-ntf-time\">".substr($value['message'], -16)."</span>";
+				if ($value['viewed'])
+					echo("<li class=\"list-group-item li-ntf\">{$msg}</li>");
+				else
+					echo("<li class=\"list-group-item list-group-item-info li-ntf\">{$msg}</li>");
+			}
+		?>
+	</ul>
+	</div>
+</div>
 <?php include_once (ROOT.'/views/footer.php');?>
 
 </body>
