@@ -1,5 +1,7 @@
 <?php
 
+include_once (ROOT.'/models/History.php');
+
 abstract class Profile
 {
 	static public function getOnlineDate($params)
@@ -179,6 +181,10 @@ abstract class Profile
 		);
 		if (DB::query($query, $data) !== false)
 		{
+			if (self::isLiked($params['whom_id'], $who_id))
+				History::createNotification($params['whom_id'], LIKED_BACK);
+			else
+				History::createNotification($params['whom_id'], LIKED);
 			//just page reload
 			return false;
 		}
@@ -224,6 +230,7 @@ abstract class Profile
 		);
 		if (DB::query($query, $data) !== false)
 		{
+			History::createNotification($whom, UNLIKED);
 			//just page reload
 			return false;
 		}

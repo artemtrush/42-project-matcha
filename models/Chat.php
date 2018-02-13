@@ -1,5 +1,7 @@
 <?php
 
+include_once (ROOT.'/models/History.php');
+
 abstract class Chat {
 	static public function saveMessageToBd($params) {
 		//foreach ($params as $value)
@@ -20,7 +22,9 @@ abstract class Chat {
 			':whom' => $params['whom'], 
 			':message' => $params['msg'] 
 		);
-		if (DB::query($query, $data) !== false) {
+		if (DB::query($query, $data) !== false)
+		{
+			History::createNotification($params['whom'], NEW_MESSAGE);
 			return true;
 		}
 		return "An error has occurred";
