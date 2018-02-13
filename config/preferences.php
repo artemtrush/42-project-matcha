@@ -3,7 +3,7 @@
 define('DOMAIN', "http://localhost");
 
 define('LIKED', '_USER liked you at _TIME');
-define('VIEW_PROFILE', '_USER came to your profile at _TIME');
+define('VIEW_PROFILE', '_USER visited your profile at _TIME');
 define('NEW_MESSAGE', '_USER sent you a message at _TIME');
 define('LIKED_BACK', '_USER liked you back at _TIME');
 define('UNLIKED', '_USER unliked you at _TIME');

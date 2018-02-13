@@ -133,6 +133,7 @@ form.upload-form {
 	width: 150px;
 	height: 150px;
 	margin-bottom: 10px;
+	border-radius: 100%;
 }
 
 .chat-window {

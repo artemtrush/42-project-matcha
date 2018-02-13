@@ -41,6 +41,7 @@ abstract class Profile
 			':id' => $_SESSION['user_id']
 		);
 		DB::query($query, $data);
+		exit;
 	}
 
 	static public function getUserInfo($id)

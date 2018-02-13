@@ -16,8 +16,8 @@
 	<br><br>
 	<div class="row">
 		<div class="col-md-2">
-			<img class="chat-img" src="http://mynameismatthieu.com/WOW/img/wow-12.gif" alt="lhs">
-			<div class="alert alert-info">username</div>
+			<?php echo "<img class=\"chat-img\" src=\"$user1Avatar\" alt=\"left user image\">" ?>
+			<?php echo "<div class=\"alert alert-info\">$user1Username</div>" ?>
 		</div>
 		<div class="col-md-8">
 			<div class="chat-window">
@@ -44,8 +44,8 @@ Praesent luctus dui commodo porttitor bibendum. Sed pretium ante quis condimentu
 			</div>
 		</div>
 		<div class="col-md-2">
-			<img class="chat-img" src="http://mynameismatthieu.com/WOW/img/wow-12.gif" alt="rhs">
-			<div class="alert alert-info">username</div>
+			<?php echo "<img class=\"chat-img\" src=\"$user2Avatar\" alt=\"right user image\">" ?>
+			<?php echo "<div class=\"alert alert-info\">$user2Username</div>" ?>
 		</div>
 	</div>
 	<?php

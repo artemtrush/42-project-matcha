@@ -10,15 +10,19 @@ abstract class Chat {
 				exit;
 			}
 		}
-		//getUserInfo
-		//isBlocked
-		//isLiked
-		// if (!self::checkUsername($params['uname']))
-		// 	return "Invalid username";
-		// if (!self::checkPassword($params['pass']))
-		// 	return "Invalid password";
-		// if ($params['pass'] !== $params['confirm'])
-		// 	return "Invalid password";
+		//getting the needed variables
+		$who = $_SESSION['user_id'];
+		$whom = $params['whom'];
+		/*
+		**checking whether the users did not block each other and like each other
+		**and whether they are not the same user
+		*/
+		if (!Profile::isLiked($who, $whom)  || !Profile::isLiked($whom, $who)) {
+			exit;
+		}
+		if (Profile::isBlocked($who, $whom) || Profile::isBlocked($whom, $who)) {
+			exit;
+		}
 
 		$query = "INSERT INTO chat (who, whom, message) VALUES (:who, :whom, :message)";
 		$data = array(
