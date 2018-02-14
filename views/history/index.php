@@ -19,7 +19,7 @@
 		<?php
 			if (!count($notifs))
 			{
-				echo("<h1 class=\"headline\">There Is Nothing, Yet...</h1>");
+				echo("<h1 class=\"headline\">There Is Nothing Here Yet...</h1>");
 			}
 			foreach ($notifs as $value)
 			{

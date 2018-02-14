@@ -18,7 +18,7 @@
 <?php
 if (!count($conns))
 {
-	echo("<h1 class=\"headline\">There Is Nothing, Yet...</h1>");
+	echo("<h1 class=\"headline\">There Is Nothing Here Yet...</h1>");
 }
 foreach ($conns as $user)
 {
