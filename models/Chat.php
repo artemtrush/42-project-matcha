@@ -38,7 +38,24 @@ abstract class Chat {
 		return "An error has occurred";
    }
 
-	static public function loadMessagesFromBd() {
-		
+	static public function loadMessagesFromBd($params) {
+		$query = "SELECT * FROM chat
+				  WHERE ((who = :who AND whom = :whom) OR (who = :who1 AND whom = :whom1))
+				  AND id > :id";
+		$data = array(
+			':who' => $_SESSION['user_id'], 
+			':whom' => $params['id'],
+			':who1' => $params['id'], 
+			':whom1' => $_SESSION['user_id'],
+			':id' => $params['index']
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetchAll(PDO::FETCH_ASSOC);
+			echo json_encode($result_array);
+			return true;
+		}
+		echo 'false';
+		exit;
 	}
 }

@@ -17,35 +17,15 @@
 	<div class="row">
 		<div class="col-md-2">
 			<?php echo "<img class=\"chat-img\" src=\"$user1Avatar\" alt=\"left user image\">" ?>
-			<?php echo "<div class=\"alert alert-info\">$user1Username</div>" ?>
+			<?php echo "<div class=\"alert alert-info text-center\">$user1Username</div>" ?>
 		</div>
 		<div class="col-md-8">
 			<div class="chat-window">
-				<div class="well col-md-9">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum, ligula sit amet aliquam tincidunt, neque augue laoreet eros, ut maximus tortor mauris nec ligula. Cras dapibus diam a lectus efficitur rhoncus. Proin ac mattis mi. Duis suscipit sit amet lacus a tincidunt. Nam vulputate sem augue, tempor hendrerit nisi pretium et. Integer maximus mauris enim, sed efficitur quam vulputate vel. Maecenas vitae sapien erat. Vivamus suscipit bibendum magna nec tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Vestibulum eget mi eu elit viverra condimentum non in est. In fermentum, tellus eget rutrum bibendum, est nibh porttitor metus, ut ultricies leo velit quis elit. Morbi placerat ultrices velit, pellentesque viverra quam congue et. Curabitur mollis porttitor imperdiet. Donec luctus nisi varius urna gravida, ut hendrerit risus laoreet. Aliquam venenatis semper nunc, nec bibendum arcu tempus nec. Integer tincidunt ante eros, non blandit enim vestibulum sed. In convallis sem ac sapien fermentum posuere. Duis et dignissim orci. Praesent auctor, libero at pharetra faucibus, nisl nulla sodales mi, eget viverra ipsum sem nec erat. Nulla feugiat metus vitae egestas hendrerit. Duis consequat auctor dolor quis maximus. Nullam eleifend ex non ultricies dignissim. Fusce euismod risus ac iaculis aliquam. Vivamus iaculis ligula nec feugiat ullamcorper.
-
-Nunc ornare lacus eu turpis sagittis, at aliquet eros lacinia. Proin interdum erat nec pellentesque tincidunt. Aliquam luctus, metus quis pretium tristique, magna ex molestie mi, et convallis dolor orci sit amet neque. In tincidunt dignissim congue. Vivamus quis iaculis mi. In auctor quis urna ut ullamcorper. Sed arcu enim, venenatis sit amet rhoncus eu, ornare tempor enim. Morbi justo nibh, vulputate non nulla ac, mattis lacinia dui. Nam augue massa, malesuada sed convallis lacinia, pulvinar vel eros.
-
-Aenean felis orci, efficitur in turpis quis, pretium faucibus nisi. Etiam aliquet turpis nunc, quis ornare erat finibus et. Vestibulum hendrerit posuere dictum. Aenean lobortis sem dolor, eu rhoncus mi imperdiet eget. Praesent hendrerit lectus id ex dapibus efficitur. Duis pretium magna vitae fringilla accumsan. Nullam diam ligula, ullamcorper a pretium eu, pretium eu purus.
-
-Praesent luctus dui commodo porttitor bibendum. Sed pretium ante quis condimentum euismod. Ut faucibus suscipit augue ut pulvinar. Cras id volutpat neque. Sed nunc nibh, elementum eu fermentum in, porta ut velit. Ut id feugiat nibh. Vivamus ornare ipsum a risus scelerisque, quis lobortis nibh elementum.
-				</div>
-				<div class="well col-md-9 col-md-offset-3">
-					huy
-				</div>
-				<div class="well col-md-9">
-					test msg 3
-				</div>
-				<div class="well col-md-9 col-md-offset-3">
-					Nunc ornare lacus eu turpis sagittis, at aliquet eros lacinia. Proin interdum erat nec pellentesque tincidunt. Aliquam luctus, metus quis pretium tristique, magna ex molestie mi, et convallis dolor orci sit amet neque. In tincidunt dignissim congue. Vivamus quis iaculis mi. In auctor quis urna ut ullamcorper. Sed arcu enim, venenatis sit amet rhoncus eu, ornare tempor enim. Morbi justo nibh, vulputate non nulla ac, mattis lacinia dui. Nam augue massa, malesuada sed convallis lacinia, pulvinar vel eros.
-				</div>
 			</div>
 		</div>
 		<div class="col-md-2">
 			<?php echo "<img class=\"chat-img\" src=\"$user2Avatar\" alt=\"right user image\">" ?>
-			<?php echo "<div class=\"alert alert-info\">$user2Username</div>" ?>
+			<?php echo "<div class=\"alert alert-info text-center\">$user2Username</div>" ?>
 		</div>
 	</div>
 	<?php
@@ -64,14 +44,14 @@ Praesent luctus dui commodo porttitor bibendum. Sed pretium ante quis condimentu
 
 </div>
 
-<!-- element.scrollTop = element.scrollHeight -->
-
 <?php include_once (ROOT.'/views/footer.php');?>
 
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function () {
-		var data = { id: <?php echo($id);?> };
-		// ajax_loop('Profile', 'getOnlineDate', data, online_status, 5);
+		var data = { id: <?php echo($id);?>,
+					 user_id: <?php echo($_SESSION['user_id']);?>,
+			 		 index: <?php echo "0"; ?> };
+		ajax_loop('Chat', 'loadMessagesFromBd', data, showMessagesInChat, 2);
 	});
 </script>
 

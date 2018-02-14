@@ -8,6 +8,7 @@ $str = <<<EOD
 	<script type="text/javascript" src="/template/js/online_status.js"></script>
 	<script type="text/javascript" src="/template/js/send_message.js"></script>
 	<script type="text/javascript" src="/template/js/notification.js"></script>
+	<script type="text/javascript" src="/template/js/chatMessages.js"></script>
 EOD;
 echo ($str);
 
