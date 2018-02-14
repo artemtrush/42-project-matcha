@@ -7,6 +7,11 @@ abstract class History
 
 	static public function  getNotifications($params)
 	{
+		if (empty($_SESSION['user_id']))
+		{
+			echo 'guest';
+			exit;
+		}
 		$query = "SELECT id, message FROM notification WHERE user_id = :user_id AND viewed = 0 AND id > :id";
 		$data = array(
 			':user_id' => $_SESSION['user_id'],

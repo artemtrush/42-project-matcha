@@ -31,6 +31,8 @@ notify.number = 0;
 
 function getNotifications(text, data)
 {
+	if (text === 'guest')
+		return;
 	var array = JSON.parse(text);
 	var number = notify.number;
 	for (var i = 0; i < array.length && i < (10 - number); i++)
