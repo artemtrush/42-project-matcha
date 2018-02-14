@@ -13,12 +13,12 @@
 <?php include_once (ROOT.'/views/header.php');?>
 
 <div class="container">
-	<form class="form-inline">
+	<form class="row">
 	<input type="hidden" name="model" value="Settings">
 	<input type="hidden" name="function" value="updateSettings">
 	<input type="hidden" id="lat" name="lat" value="">
 	<input type="hidden" id="lng" name="lng" value="">
-		<div class="form-group">
+		<div style="margin-top: 50px;" class="form-group col-md-2">
 			<label>Age</label>
 			<select name="age" class="form-control">
 				<?php
@@ -30,7 +30,7 @@
 				?>
 			</select>
 		</div>
-		<div class="form-group">
+		<div style="margin-top: 50px;" class="form-group col-md-2">
 			<label>Rate</label>
 			<select name="rate" class="form-control">
 				<?php
@@ -42,9 +42,9 @@
 				?>
 			</select>
 		</div>
-		<div class="form-group">
+		<div class="form-group col-md-8"">
 			<label>Location</label>
-				<div id="map-container" style="height: 500px; width: 500px;">
+				<div id="map-container">
 					<div id="map"></div>
 					<?php
 						echo ("
@@ -58,7 +58,6 @@
 					?>
 				</div>
 		</div>
-		<button type="submit" class="btn btn-primary">Search</button>
 		<div class="row">
 			<?php
 				global $_TAG_;
@@ -76,7 +75,72 @@
 				}
 			?>
 		</div>
+		<br>
+		<div class="row">
+			<button type="submit" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
+		</div>
 	</form>
+
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table class="table" id="myTable">
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbkop</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Koniglich Essen</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Paris specialites</td>
+    <td>France</td>
+  </tr>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 </div>
 
 <?php include_once (ROOT.'/views/footer.php');?>
