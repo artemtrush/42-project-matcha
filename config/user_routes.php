@@ -7,6 +7,6 @@ return array(
     'settings' => 'settings/index',
     'connections' => 'connections/index',
     'history' => 'history/index',
-    'search' => 'search/index',
+    'search' => 'search/view',
     '' => 'profile/index'
 );
