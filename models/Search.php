@@ -21,8 +21,7 @@ abstract class Search {
 			if ($user['sex_pref'] == 1) {
 				$query = "SELECT * FROM user
 							WHERE id != :id
-							AND gender = 1
-							AND sex_pref = 1";
+							AND ((gender = 1 AND sex_pref = 1) OR (gender = 1 AND sex_pref = 0))";
 			} else if ($user['sex_pref'] == 2) {
 				$query = "SELECT * FROM user
 							WHERE id != :id
@@ -38,26 +37,23 @@ abstract class Search {
 							OR (gender = 0 AND sex_pref = 0)";
 			}
 		} else {
-			if ($user['gender'] == 1) {
-				if ($user['sex_pref'] == 1) {
-					$query = "SELECT * FROM user
-								WHERE id != :id
-								AND gender = 0
-								AND sex_pref = 1";
-				} else if ($user['sex_pref'] == 2) {
-					$query = "SELECT * FROM user
-								WHERE id != :id
-								AND gender = 1
-								AND sex_pref = 2";
-				} else {
-					$query = "SELECT * FROM user
-								WHERE id != :id
-								AND
-								(gender = 0 AND sex_pref = 1)
-								OR (gender = 1 AND sex_pref = 2)
-								OR (gender = 1 AND sex_pref = 0)
-								OR (gender = 0 AND sex_pref = 0)";
-				}
+			if ($user['sex_pref'] == 1) {
+				$query = "SELECT * FROM user
+							WHERE id != :id
+							AND gender = 0
+							AND sex_pref = 1";
+			} else if ($user['sex_pref'] == 2) {
+				$query = "SELECT * FROM user
+							WHERE id != :id
+							AND gender = 1
+							AND sex_pref = 2";
+			} else {
+				$query = "SELECT * FROM user
+							WHERE (id != :id) 			   AND
+							((gender = 0 AND sex_pref = 1) OR
+							(gender = 1 AND sex_pref = 2)  OR
+							(gender = 1 AND sex_pref = 0)  OR
+							(gender = 0 AND sex_pref = 0))";
 			}
 		}
 
