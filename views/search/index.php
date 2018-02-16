@@ -107,79 +107,15 @@
             <?php foreach ($searchResults as $value) {
                 echo "
                     <tr>
-                        <td>$value[username]</td>
-                        <td>$value[age]</td>
-                        <td>$value[rate]</td>
+                        <td><a class=\"search-link\"href=\"/profile/{$value['id']}\">{$value['username']}</a></td>
+                        <td>{$value['age']}</td>
+                        <td>{$value['rate']}</td>
                         <td>{$_GENDER_[$value['gender']]}</td>
                         <td>{$_SEX_[$value['sex_pref']]}</td>
                     </tr>
                 ";
             }
             ?>
-           <!--  <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012/12/02</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012/08/06</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td>55</td>
-                <td>2010/10/14</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009/09/15</td>
-            </tr> -->
-
         </tbody>
     <?php endif; ?>
     </table>
@@ -193,30 +129,6 @@
 </script>
 
 <?php include_once (ROOT.'/views/footer.php');?>
-
-<!-- <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function () {
-		var request = new XMLHttpRequest();
-		var params = 'model=Search&function=showSearchResults';
-
-		request.open('POST', '/controllers/RequestController.php');
-		request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		request.send(params);
-	});
-
-    request.onload = function()
-    {   
-        var tbody = document.getElementsByTagName('tbody')[0];
-        if (request.responseText !== 'false')
-        {
-            0;
-        } else {
-            var div = document.createElement('div');
-            div.textContent = "There is nothing here yet :(";
-            tbody.appendChild(div);
-        }
-    };
-</script> -->
 
 </body>
 </html>
