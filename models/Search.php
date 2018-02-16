@@ -44,6 +44,38 @@ abstract class Search {
 			$result_array = $result->fetchAll(PDO::FETCH_ASSOC);
 			return $result_array;
 		}
-		return "There is nothing yet";
+		return "There is no match for you :(";
+	}
+
+	static public function manualUserSearch($params) {
+		$tag1 = $params['tag1'];
+		$tag2 = $params['tag2'];
+		$tag3 = $params['tag3'];
+		$tag4 = $params['tag4'];
+		$tag5 = $params['tag5'];
+		$tag6 = $params['tag6'];
+		$tag7 = $params['tag7'];
+		$tag8 = $params['tag8'];
+		$tag9 = $params['tag9'];
+
+		if ($tag1 != "false") {
+			echo "1";
+		} else
+			echo "0";
+		return true;
+		$query = "SELECT * FROM user WHERE id != :id AND age = :age AND rate >= :rate";
+		$data = array(
+			':id' => $_SESSION['user_id'],
+			':age' => $params['age'],
+			':rate' => $params['rate']
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetchAll(PDO::FETCH_ASSOC);
+			echo json_encode($result_array);
+			return true;
+		}
+		echo "false";
+		exit;
 	}
 }

@@ -9,6 +9,7 @@ class SearchController
     	$searchResults = Search::showSearchResults();
     	global $_GENDER_;
     	global $_SEX_;
+    	global $_TAG_;
     	
         require_once(ROOT.'/views/search/index.php');
         return true;

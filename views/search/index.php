@@ -14,13 +14,11 @@
 
 <div class="container">
 	<form class="row">
-	<input type="hidden" name="model" value="Settings">
-	<input type="hidden" name="function" value="updateSettings">
-	<input type="hidden" id="lat" name="lat" value="">
-	<input type="hidden" id="lng" name="lng" value="">
+        <input type="hidden" id="lat" name="lat" value="">
+        <input type="hidden" id="lng" name="lng" value="">
 		<div style="margin-top: 50px;" class="form-group col-md-2">
 			<label>Age</label>
-			<select name="age" class="form-control">
+			<select id="age" name="age" class="form-control">
 				<?php
 					echo("<option value=\"18\" selected>18</option>");
 					for ($i = 19; $i < 100; $i++)
@@ -32,10 +30,10 @@
 		</div>
 		<div style="margin-top: 50px;" class="form-group col-md-2">
 			<label>Rate</label>
-			<select name="rate" class="form-control">
+			<select id="rate" name="rate" class="form-control">
 				<?php
-					echo("<option value=\"0\" selected>0</option>");
-					for ($i = 1; $i < 100; $i++)
+					echo("<option value=\"1\" selected>1</option>");
+					for ($i = 2; $i < 100; $i++)
 					{
 						echo("<option value=\"{$i}\">{$i}</option>");
 					}
@@ -66,7 +64,7 @@
 					$name = "tag".($key + 1);
 					echo("
 					<div class=\"form-check col-md-4\">
-						<input name=\"{$name}\" class=\"form-check-input\" type=\"checkbox\" value=\"\" id=\"{$name}\">
+						<input name=\"{$name}\" class=\"form-check-input searchTags\" type=\"checkbox\" value=\"\" id=\"{$name}\">
 						<label class=\"form-check-label\" for=\"{$name}\">
 					    	{$value}
 						</label>
@@ -77,7 +75,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<button type="submit" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
+			<button type="button" onclick="manualUserSearch()" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
 		</div>
 	</form>
 	<br>
@@ -102,7 +100,7 @@
                 <th>Sexual Preferences</th>
             </tr>
         </tfoot>
-        <?php if ($searchResults !== "There is nothing yet") : ?>
+        <?php if ($searchResults !== "There is no match for you :(") : ?>
         <tbody>
             <?php foreach ($searchResults as $value) {
                 echo "

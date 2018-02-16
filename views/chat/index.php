@@ -38,7 +38,7 @@
 			<textarea class="form-control chat-new-msg" maxlength="300" placeholder="Add Message"></textarea>
 		</div>
 		<div class="col-md-2">
-			<button onclick="sendMessage()" style="height: 58px; width: 100%;" class="btn btn-primary btn-lg">Send</button>
+			<button type="submit" onclick="sendMessage()" style="height: 58px; width: 100%;" class="btn btn-primary btn-lg">Send</button>
 		</div>
 	</div>
 
