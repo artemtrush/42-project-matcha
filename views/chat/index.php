@@ -15,17 +15,17 @@
 <div class="container">
 	<br><br>
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2 hidden-sm hidden-xs">
 			<?php echo "<img class=\"chat-img\" src=\"$user1Avatar\" alt=\"left user image\">" ?>
-			<?php echo "<div class=\"alert alert-info text-center\">$user1Username</div>" ?>
+			<?php echo "<h2 class=\"headline\">$user1Username</h1>" ?>
 		</div>
 		<div class="col-md-8">
 			<div class="chat-window">
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-2 hidden-sm hidden-xs">
 			<?php echo "<img class=\"chat-img\" src=\"$user2Avatar\" alt=\"right user image\">" ?>
-			<?php echo "<div class=\"alert alert-info text-center\">$user2Username</div>" ?>
+			<?php echo "<h2 class=\"headline\">$user2Username</h1>" ?>
 		</div>
 	</div>
 	<?php
@@ -38,7 +38,7 @@
 			<textarea class="form-control chat-new-msg" maxlength="300" placeholder="Add Message"></textarea>
 		</div>
 		<div class="col-md-2">
-			<button onclick="sendMessage()" style="height: 58px; width: 100%;" class="btn btn-primary btn-lg">Send</button>
+			<button type="submit" onclick="sendMessage()" style="height: 58px; width: 100%;" class="btn btn-primary btn-lg">Send</button>
 		</div>
 	</div>
 
