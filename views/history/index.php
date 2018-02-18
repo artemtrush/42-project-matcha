@@ -11,7 +11,7 @@
 <body>
 
 <?php include_once (ROOT.'/views/header.php');?>
-<br><br>
+<br>
 <div class="container">
 	<div class="row">
 	<div class="col-md-10 col-md-offset-1">

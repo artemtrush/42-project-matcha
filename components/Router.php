@@ -16,7 +16,7 @@ class Router
 
 	public function  page_not_found()
 	{
-		header("HTTP/1.0 404 Not Found");
+		include_once(ROOT.'/views/notFound.php');
 		exit;
 	}
 

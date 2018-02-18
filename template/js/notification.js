@@ -25,7 +25,6 @@ var notify = function(msg)
 	}, (3 + notify.number) * 1000);
 	notify.number++;
 }
-
 notify.top = 100;
 notify.number = 0;
 

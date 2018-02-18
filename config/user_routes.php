@@ -8,5 +8,6 @@ return array(
     'connections' => 'connections/index',
     'history' => 'history/index',
     'search' => 'search/view',
+    'map' => 'map/index',
     '' => 'profile/index'
 );

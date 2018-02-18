@@ -4,6 +4,34 @@ include_once (ROOT.'/models/History.php');
 
 abstract class Profile
 {
+	static private function updateFameRate($rate, $user_id)
+	{
+		$query = "SELECT user.rate FROM user WHERE user.id = :id";
+		$data = array(
+			':id' => $user_id
+		);
+		if (($result = DB::query($query, $data)) !== false)
+		{
+			$result_array = $result->fetch(PDO::FETCH_ASSOC);
+			if (!empty($result_array['rate']))
+			{
+				$rate = $result_array['rate'] + $rate;
+				if ($rate < 1)
+					$rate = 1;
+				else if ($rate > 100)
+					$rate = 100;
+				$query = "UPDATE user SET user.rate = :rate WHERE user.id = :id";
+				$data = array(
+					':rate' => $rate,
+					':id' => $user_id
+				);
+				if (DB::query($query, $data) !== false)
+					return true;
+			}
+		}
+		return false;
+	}
+
 	static public function getOnlineDate($params)
 	{
 		foreach ($params as $value)
@@ -186,8 +214,11 @@ abstract class Profile
 				History::createNotification($params['whom_id'], LIKED_BACK);
 			else
 				History::createNotification($params['whom_id'], LIKED);
-			//just page reload
-			return false;
+			if (self::updateFameRate(9, $params['whom_id']))
+			{
+				//just page reload
+				return false;
+			}
 		}
 		return "An error occurred";
 	}
@@ -232,8 +263,11 @@ abstract class Profile
 		if (DB::query($query, $data) !== false)
 		{
 			History::createNotification($whom, UNLIKED);
-			//just page reload
-			return false;
+			if (self::updateFameRate(-9, $whom))
+			{
+				//just page reload
+				return false;
+			}
 		}
 		return "An error occurred";
 	}
