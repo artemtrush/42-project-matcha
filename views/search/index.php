@@ -13,7 +13,9 @@
 <?php include_once (ROOT.'/views/header.php');?>
 
 <div class="container">
-	<form class="row">
+	<form class="row" method="post" action="/controllers/RequestController.php">
+        <input type="hidden" name="model" value="Search">
+        <input type="hidden" name="function" value="showSearchResults">
         <input type="hidden" id="lat" name="lat" value="">
         <input type="hidden" id="lng" name="lng" value="">
 		<div style="margin-top: 50px;" class="form-group col-md-2">
@@ -75,7 +77,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<button type="button" onclick="manualUserSearch()" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
+			<button type="button" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
 		</div>
 	</form>
 	<br>
