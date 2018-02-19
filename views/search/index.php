@@ -29,7 +29,7 @@
 			</select>
 		</div>
 		<div style="margin-top: 50px;" class="form-group col-md-2">
-			<label>Rate</label>
+			<label>Minimum Rate</label>
 			<select id="rate" name="rate" class="form-control">
 				<?php
 					echo("<option value=\"1\" selected>1</option>");
@@ -80,11 +80,6 @@
 	</form>
 	<br>
 	<br>
-
-    <div class="well row">
-        <a style="color: black; text-decoration: none; font-size: 24px;" class="text-center center-block" href="/map">Click Here to Check the Map of Users</a>
-    </div>
-    <br><br>
     <table id="resultsTable" class="table table-striped table-inverse table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -121,6 +116,10 @@
         </tbody>
     <?php endif; ?>
     </table>
+    <br><br>
+    <div class="well row">
+        <a style="color: black; text-decoration: none; font-size: 24px;" class="text-center center-block" href="/map">Click Here to Check the Map of Users</a>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
