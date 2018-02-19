@@ -48,6 +48,18 @@ abstract class Search {
 	}
 
 	static public function manualUserSearch($params) {
+
+		$age = $params['age'];   unset($params['age']);
+		$rate = $params['rate']; unset($params['rate']);
+		$xPos = $params['xPos']; unset($params['xPos']);
+		$yPos = $params['yPos']; unset($params['yPos']);
+
+		$tags = array();
+		foreach ($params as $value) {
+			if ($value === "true") {
+				$tags = "AND ".$value;
+			}
+		}
 		$tag1 = $params['tag1'];
 		$tag2 = $params['tag2'];
 		$tag3 = $params['tag3'];

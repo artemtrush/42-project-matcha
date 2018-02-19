@@ -8,7 +8,6 @@ function manualUserSearch() {
 	for (var i = 0; i < tags.length; ++i) {
 		params += '&' + tags[i].name + "=" + tags[i].checked;
 	}
-	console.log(params);
 	request.open('POST', '/controllers/RequestController.php');
 	request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	request.send(params);

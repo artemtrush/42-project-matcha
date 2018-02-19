@@ -11,7 +11,7 @@
 <body>
 
 <?php include_once (ROOT.'/views/header.php');?>
-<h1 class="headline">Interactive map of users</h1>
+<h1 class="headline">Interactive Map of Users</h1>
 <div class="container">
 	<div id="map-container" style="height: 80vh;">
 		<div id="map"></div>
