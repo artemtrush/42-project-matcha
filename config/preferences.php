@@ -1,6 +1,6 @@
 <?php
 
-define('DOMAIN', "http://localhost");
+define('DOMAIN', "http://localhost:8080");
 
 define('LIKED', '_USER liked you.');
 define('VIEW_PROFILE', '_USER visited your profile.');

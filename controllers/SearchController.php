@@ -10,7 +10,7 @@ class SearchController
     	global $_GENDER_;
     	global $_SEX_;
     	global $_TAG_;
-    	
+    	//session vars
         require_once(ROOT.'/views/search/index.php');
         return true;
     }

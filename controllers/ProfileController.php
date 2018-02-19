@@ -26,6 +26,9 @@ class ProfileController
 		$image3 = $info['image3'];
 		$image4 = $info['image4'];
 		$rate = $info['rate'];
+		if ($rate > 100) {
+			$rate = 100;
+		}
 		$x_pos = $info['location_x'];
 		$y_pos = $info['location_y'];
 		$tag = array();

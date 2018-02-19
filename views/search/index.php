@@ -29,7 +29,7 @@
 			</select>
 		</div>
 		<div style="margin-top: 50px;" class="form-group col-md-2">
-			<label>Minimum Rate</label>
+			<label>Minimum Fame Rate</label>
 			<select id="rate" name="rate" class="form-control">
 				<?php
 					echo("<option value=\"1\" selected>1</option>");
@@ -102,6 +102,9 @@
         <?php if ($searchResults !== "There is no match for you :(") : ?>
         <tbody>
             <?php foreach ($searchResults as $value) {
+                if ($value['rate'] > 100) {
+                    $value['rate'] = 100;
+                }
                 echo "
                     <tr>
                         <td><a class=\"search-link\"href=\"/profile/{$value['id']}\">{$value['username']}</a></td>
@@ -118,7 +121,7 @@
     </table>
     <br><br>
     <div class="well row">
-        <a style="color: black; text-decoration: none; font-size: 24px;" class="text-center center-block" href="/map">Click Here to Check the Map of Users</a>
+        <a class="user-map text-center center-block" href="/map">Click Here to Check the Map of Users</a>
     </div>
 </div>
 

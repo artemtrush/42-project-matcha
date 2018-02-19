@@ -18,8 +18,6 @@ abstract class Profile
 				$rate = $result_array['rate'] + $rate;
 				if ($rate < 1)
 					$rate = 1;
-				else if ($rate > 100)
-					$rate = 100;
 				$query = "UPDATE user SET user.rate = :rate WHERE user.id = :id";
 				$data = array(
 					':rate' => $rate,

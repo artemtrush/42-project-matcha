@@ -57,8 +57,7 @@ abstract class Login
 				$link = DOMAIN."/reset/".encode(encode($params['email']));
 				sendmail($params['email'], "Link for matcha password reset: ".PHP_EOL.$link);
 				$_SESSION['reset_email'] = $params['email'];
-				header ('Location: /profile');
-				return true;
+				return "The password reset link was sent to your email";
 			}
 			return "User not found";
 		}
