@@ -25,6 +25,6 @@ CREATE TABLE IF NOT EXISTS user (
     image3		VARCHAR(50) NOT NULL DEFAULT "/template/img/default_image.png",
     image4		VARCHAR(50) NOT NULL DEFAULT "/template/img/default_image.png",
     online		TIMESTAMP,
-    location_x	REAL NOT NULL DEFAULT 50.468818,
-    location_y  REAL NOT NULL DEFAULT 30.4600373
+    location_x	REAL NOT NULL DEFAULT 50.4688073,
+    location_y  REAL NOT NULL DEFAULT 30.4621631
 )
