@@ -22,10 +22,12 @@
 			<label>Age</label>
 			<select id="age" name="age" class="form-control">
 				<?php
-					echo("<option value=\"18\" selected>18</option>");
-					for ($i = 19; $i < 100; $i++)
+					for ($i = 18; $i < 100; $i++)
 					{
-						echo("<option value=\"{$i}\">{$i}</option>");
+						if ($i == $filters['age'])
+							echo("<option value=\"{$i}\" selected>{$i}</option>");
+						else
+							echo("<option value=\"{$i}\">{$i}</option>");
 					}
 				?>
 			</select>
@@ -34,10 +36,12 @@
 			<label>Minimum Fame Rate</label>
 			<select id="rate" name="rate" class="form-control">
 				<?php
-					echo("<option value=\"1\" selected>1</option>");
-					for ($i = 2; $i < 100; $i++)
+					for ($i = 1; $i < 100; $i++)
 					{
-						echo("<option value=\"{$i}\">{$i}</option>");
+						if ($i == $filters['rate'])
+							echo("<option value=\"{$i}\" selected>{$i}</option>");
+						else
+							echo("<option value=\"{$i}\">{$i}</option>");
 					}
 				?>
 			</select>
@@ -49,8 +53,8 @@
 					<?php
 						echo ("
 						<script>
-							var x_pos = 50.468818;
-							var y_pos = 30.4600373;
+							var x_pos = {$filters['lat']};
+							var y_pos = {$filters['lng']};
 							var uname = \"Choose position\";
 							var markable = true;
 						</script>
@@ -64,6 +68,16 @@
 				foreach ($_TAG_ as $key => $value)
 				{
 					$name = "tag".($key + 1);
+					if (isset($filters[$name]))
+					echo("
+					<div class=\"form-check col-md-4\">
+						<input checked name=\"{$name}\" class=\"form-check-input searchTags\" type=\"checkbox\" value=\"\" id=\"{$name}\">
+						<label class=\"form-check-label\" for=\"{$name}\">
+					    	{$value}
+						</label>
+					</div>
+					");
+					else
 					echo("
 					<div class=\"form-check col-md-4\">
 						<input name=\"{$name}\" class=\"form-check-input searchTags\" type=\"checkbox\" value=\"\" id=\"{$name}\">
@@ -90,7 +104,7 @@
                 <th>Fame Rate</th>
                 <th>Gender</th>
                 <th>Sexual Preferences</th>
-                <th>Distance (GU)</th>
+                <th>Distance (Meters)</th>
             </tr>
         </thead>
         <tfoot>
@@ -100,12 +114,14 @@
                 <th>Fame Rate</th>
                 <th>Gender</th>
                 <th>Sexual Preferences</th>
-                <th>Distance (GU)</th>
+                <th>Distance (Meters)</th>
             </tr>
         </tfoot>
         <?php if ($searchResults !== "There is no match for you :(") : ?>
         <tbody>
-            <?php foreach ($searchResults as $value) {
+            <?php 
+            $i = 0;
+            foreach ($searchResults as $value) {
                 if ($value['rate'] > 100) {
                     $value['rate'] = 100;
                 }
@@ -116,9 +132,16 @@
                         <td>{$value['rate']}</td>
                         <td>{$_GENDER_[$value['gender']]}</td>
                         <td>{$_SEX_[$value['sex_pref']]}</td>
-                        <td>{$value['dist']}</td>
+                        <td id=\"dst{$i}\"></td>
                     </tr>
+                <script>
+                	var pos1 = new google.maps.LatLng({$value['location_x']}, {$value['location_y']});
+                	var pos2 = new google.maps.LatLng({$user['location_x']}, {$user['location_y']});
+            		document.getElementById('dst{$i}').innerHTML =
+                		google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2).toFixed(2);
+	            </script>
                 ";
+                $i++;
             }
             ?>
         </tbody>

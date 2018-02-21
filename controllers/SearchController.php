@@ -11,20 +11,19 @@ class SearchController
 		$user = Profile::getUserInfo($_SESSION['user_id']);
 
 		if (!isset($_SESSION['filters'])) {
-			$filters = array();
-			$filters[] = "";
+			$filters = array(
+				'lat' => $user['location_x'],
+				'lng' => $user['location_y'],
+				'age' => $user['age'],
+				'rate' => 1
+			);
 		} else {
 			$filters = $_SESSION['filters'];
 			unset($_SESSION['filters']);
 		}
 
     	$searchResults = Search::showSearchResults($filters, $user);
-		foreach ($searchResults as $key => $value) {
-			$x = pow($value['location_x'] - $user['location_x'], 2);
-			$y = pow($value['location_y'] - $user['location_y'], 2);
-			$res = sqrt($x + $y);
-			$searchResults[$key]['dist'] = $res;
-		}
+
     	global $_GENDER_;
     	global $_SEX_;
     	global $_TAG_;
