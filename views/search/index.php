@@ -90,7 +90,7 @@
                 <th>Fame Rate</th>
                 <th>Gender</th>
                 <th>Sexual Preferences</th>
-                <th>Distance</th>
+                <th>Distance (GU)</th>
             </tr>
         </thead>
         <tfoot>
@@ -99,7 +99,7 @@
                 <th>Age</th>
                 <th>Fame Rate</th>
                 <th>Gender</th>
-                <th>Sexual Preferences (GU)</th>
+                <th>Sexual Preferences</th>
                 <th>Distance (GU)</th>
             </tr>
         </tfoot>

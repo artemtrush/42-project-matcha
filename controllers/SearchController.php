@@ -7,9 +7,9 @@ class SearchController
 {
     public function actionView() {
     	$active = "search";
-        $user = Profile::getUserInfo($_SESSION['user_id']);
+    	//getting the current user data from the bd
+		$user = Profile::getUserInfo($_SESSION['user_id']);
 
-        // var_dump($_SESSION['filters']);
 		if (!isset($_SESSION['filters'])) {
 			$filters = array();
 			$filters[] = "";
@@ -18,7 +18,7 @@ class SearchController
 			unset($_SESSION['filters']);
 		}
 
-    	$searchResults = Search::showSearchResults($filters);
+    	$searchResults = Search::showSearchResults($filters, $user);
 		foreach ($searchResults as $key => $value) {
 			$x = pow($value['location_x'] - $user['location_x'], 2);
 			$y = pow($value['location_y'] - $user['location_y'], 2);

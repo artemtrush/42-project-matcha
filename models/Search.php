@@ -75,13 +75,11 @@ abstract class Search {
 	// 	exit;
 	// }
 
-	static public function showSearchResults($filters) {
-		//getting the current user data from the bd
-		$user = Profile::getUserInfo($_SESSION['user_id']);
+	static public function showSearchResults($filters, $user) {
 		//populating filters if any for the bd query
 		$tagsSQL = "";
 		foreach ($filters as $key => $value) {
-			if (strpos($key, "tag")) {
+			if (strpos($key, "tag") !== false) {
 				$tagsSQL .= " AND ".$key." = 1";
 			}
 		}
@@ -90,7 +88,7 @@ abstract class Search {
 			$ageAndRate .= " AND age = ".$filters['age'];
 		}
 		if (isset($filters['rate'])) {
-			$ageAndRate .= " AND rate = ".$filters['rate'];
+			$ageAndRate .= " AND rate >= ".$filters['rate'];
 		}
 		
 		/*sex_pref
@@ -142,10 +140,6 @@ abstract class Search {
 		// 	$filters[] = $key[$value];
 		// }
 		$_SESSION['filters'] = $_POST;
-		// $filters = array();
-		// $filters[] = "ebat";
-		// $filters[] = "kopat";
-		// $_SESSION['filters'] = $_POST;
 		header ('Location: /search'); 
 		return true;
 	}
