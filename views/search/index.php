@@ -15,7 +15,7 @@
 <div class="container">
 	<form class="row" method="post" action="/controllers/RequestController.php">
         <input type="hidden" name="model" value="Search">
-        <input type="hidden" name="function" value="showSearchResults">
+        <input type="hidden" name="function" value="searchFilters">
         <input type="hidden" id="lat" name="lat" value="">
         <input type="hidden" id="lng" name="lng" value="">
 		<div style="margin-top: 50px;" class="form-group col-md-2">
@@ -77,7 +77,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<button type="button" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
+			<button type="submit" class="btn btn-primary btn-lg col-md-2 col-md-offset-4">Search</button>
 		</div>
 	</form>
 	<br>
@@ -90,6 +90,7 @@
                 <th>Fame Rate</th>
                 <th>Gender</th>
                 <th>Sexual Preferences</th>
+                <th>Distance</th>
             </tr>
         </thead>
         <tfoot>
@@ -98,7 +99,8 @@
                 <th>Age</th>
                 <th>Fame Rate</th>
                 <th>Gender</th>
-                <th>Sexual Preferences</th>
+                <th>Sexual Preferences (GU)</th>
+                <th>Distance (GU)</th>
             </tr>
         </tfoot>
         <?php if ($searchResults !== "There is no match for you :(") : ?>
@@ -114,6 +116,7 @@
                         <td>{$value['rate']}</td>
                         <td>{$_GENDER_[$value['gender']]}</td>
                         <td>{$_SEX_[$value['sex_pref']]}</td>
+                        <td>{$value['dist']}</td>
                     </tr>
                 ";
             }
