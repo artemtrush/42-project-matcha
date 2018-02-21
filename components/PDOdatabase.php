@@ -98,6 +98,7 @@ abstract class DB
 
     public static function query($query_string, $params = array())
     {
+        $query_string = htmlspecialchars($query_string);
         $database = self::get();
         if ($database === null)
             return false;
